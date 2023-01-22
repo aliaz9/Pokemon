@@ -1,0 +1,34 @@
+.logo {
+    width: 80px;
+} 
+
+.navbar {
+    height: 100px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: yellow;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.btn-create {
+    color: white;
+    background-color: black;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    width: 220px;
+    height: 50px;
+    border-radius: 30px;
+    
+} 
+
+.btn-create:hover{
+    background: white;
+    color: black;
+    border-color: black;
+}
+
