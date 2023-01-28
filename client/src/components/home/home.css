@@ -1,0 +1,32 @@
+.allselectors {
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 5px;
+  }
+  
+  .select {
+  background-color: white;
+  width: 130px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+  padding: 5px 10px 5px 5px;
+  margin-left: 30px;
+  margin-right: 30px;
+  border-color: black;
+  border-width: 2px;
+  }
+  
+  .allpokemons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;   
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  
+  .pages {
+      font-size: 18px;
+  font-family: 'Poppins', sans-serif;   
+  }

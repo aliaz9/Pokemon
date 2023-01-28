@@ -16,34 +16,36 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
+    image: {
+      type: DataTypes.TEXT,
+    },
 
     hp: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
     },
 
     attack: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
     },
 
     defense: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
     },
 
     speed: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
     },
 
     height: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
     },
 
     weight: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
     },
 
     createdInDB: {
       type: DataTypes.BOOLEAN,
-      // allowNull: false,
       defaultValue: true,
      }, 
   

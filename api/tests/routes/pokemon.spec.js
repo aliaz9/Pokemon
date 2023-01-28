@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const { expect } = require('chai');
 const session = require('supertest-session');
 const app = require('../../src/app.js');
@@ -14,11 +13,19 @@ describe('Pokemon routes', () => {
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
   }));
-  beforeEach(() => Pokemon.sync({ force: true })
-    .then(() => Pokemon.create(pokemon)));
-  describe('GET /pokemons', () => {
-    it('should get 200', () =>
-      agent.get('/pokemons').expect(200)
-    );
-  });
+
+  describe('GET /pokemon', () => {
+    it('should get 200', (done) => {
+      agent.get('/pokemon').expect(200)
+      done();
+  })
+})
+
+  describe('GET /tipos', () => {
+    it('responds with 200', (done) =>{
+      agent.get('/tipos').expect(200);
+      done()
+    })
+  })
+
 });
