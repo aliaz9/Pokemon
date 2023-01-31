@@ -166,50 +166,50 @@ export default function Create() {
                     <div>
                         <label className="label">Name:</label>
                         <input type="text" name="name" className="black" onChange={(e) => { handleChange(e) }} />
-                        {errors.name ? <p>{errors.name}</p> : null}
+                        {errors.name ? <p className="red">{errors.name}</p> : null}
                     </div>
 
                     <div>
                         <label className="label">Image:</label>
                         <input type="text" name="image" className="black" onChange={(e) => { handleChange(e) }} />
-                        {errors.image ? <p>{errors.image}</p> : null}
+                        {errors.image ? <p className="red">{errors.image}</p> : null}
                     </div>
                     <div>
                         <label className="label">HP:</label>
                         <input type="text" name="hp" className="black" onChange={(e) => { handleChange(e) }} />
-                        {errors.hp ? <p>{errors.hp}</p> : null}
+                        {errors.hp ? <p className="red">{errors.hp}</p> : null}
                     </div>
                     <div>
                         <label className="label">Attack:</label>
                         <input type="text" name="attack" className="black" onChange={(e) => { handleChange(e) }} />
-                        {errors.attack ? <p>{errors.attack}</p> : null}
+                        {errors.attack ? <p className="red">{errors.attack}</p> : null}
                     </div>
                     <div>
                         <label className="label">Defense:</label>
                         <input type="text" name="defense" className="black" onChange={(e) => { handleChange(e) }} />
-                        {errors.defense ? <p>{errors.defense}</p> : null}
+                        {errors.defense ? <p className="red">{errors.defense}</p> : null}
                     </div>
 
                     <div>
                         <label className="label">Speed:</label>
                         <input type="text" name="speed" className="black" onChange={(e) => { handleChange(e) }} />
-                        {errors.speed ? <p>{errors.speed}</p> : null}
+                        {errors.speed ? <p className="red">{errors.speed}</p> : null}
                     </div>
                     <div>
                         <label className="label">Weight:</label>
                         <input type="text" name="weight" className="black" onChange={(e) => { handleChange(e) }} />
-                        {errors.weight ? <p>{errors.weight}</p> : null}
+                        {errors.weight ? <p className="red">{errors.weight}</p> : null}
                     </div>
                     <div>
                         <label className="label">Height:</label>
                         <input type="text" name="height" className="black" onChange={(e) => { handleChange(e) }} />
-                        {errors.height ? <p>{errors.height}</p> : null}
+                        {errors.height ? <p className="red">{errors.height}</p> : null}
                     </div>
 
-
-
                     <div>
-                        <select onChange={(e) => { handleSelect(e) }}>
+                    <label className="label">Types:</label>
+
+                        <select className="select" onChange={(e) => { handleSelect(e) }}>
                             {
                                 types.map(t => {
                                     return (
@@ -223,8 +223,8 @@ export default function Create() {
                             {
                                 input.types.map(t =>
                                     <div key={t.name}>
-                                        <p>{t}</p>
-                                        <button onClick={() => handleClose(t)} >X</button>
+                                        <p className="option">{t}</p>
+                                        <button className="btn-close" onClick={() => handleClose(t)} >X</button>
 
                                     </div>
 
@@ -235,7 +235,9 @@ export default function Create() {
                     <button className='btn-create-pokemon' type="Submit">CREATE</button>
                 </form>
 
+
             </div>
+
         </div>
     )
 
