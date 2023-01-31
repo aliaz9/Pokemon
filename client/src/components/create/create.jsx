@@ -10,23 +10,23 @@ export default function Create() {
 
     let dispatch = useDispatch();
     let types = useSelector((state) => state.types);
-
+    let success = false;
     const [input, setInput] = useState({
 
-        name: "",
-        image: "",
-        hp: "",
-        attack: "",
-        defense: "",
-        speed: "",
-        height: "",
-        weight: "",
+        name: null,
+        image: null,
+        hp: null,
+        attack: null,
+        defense: null,
+        speed: null,
+        height: null,
+        weight: null,
         types: []
 
     })
 
     const [errors, setErrors] = useState({
-        name: "",
+        name: '',
         image: "",
         hp: "",
         attack: "",
@@ -41,50 +41,50 @@ export default function Create() {
     function validate(input) {
         let errors = {};
         console.log(input)
-       
+
         if (!input.name) {
-          errors.name = 'Name is required.';
+            errors.name = 'Name is required.';
         } else if (!/^.{0,15}$/.test(input.name)) {
-          errors.name = 'Name is too long.';
+            errors.name = 'Name is too long.';
         }
-    
+
         if (input.hp) {
-           if (!/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/gm.test(input.hp)) {
-            errors.hp = 'HP must be number bigger than 0.';
-          }
+            if (!/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/gm.test(input.hp)) {
+                errors.hp = 'HP must be number bigger than 0.';
+            }
         }
 
         if (input.attack) {
             if (!/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/gm.test(input.attack)) {
-             errors.attack = 'Attack must be number bigger than 0.';
-           }
-         }
+                errors.attack = 'Attack must be number bigger than 0.';
+            }
+        }
 
-         if (input.defense) {
+        if (input.defense) {
             if (!/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/gm.test(input.defense)) {
-             errors.defense = 'Defense must be number bigger than 0.';
-           }
-         }
+                errors.defense = 'Defense must be number bigger than 0.';
+            }
+        }
 
-         if (input.speed) {
+        if (input.speed) {
             if (!/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/gm.test(input.speed)) {
-             errors.speed = 'Speed must be number bigger than 0.';
-           }
-         }
+                errors.speed = 'Speed must be number bigger than 0.';
+            }
+        }
 
-         if (input.weight) {
+        if (input.weight) {
             if (!/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/gm.test(input.weight)) {
-             errors.weight = 'Weight must be number bigger than 0.';
-           }
-         }
+                errors.weight = 'Weight must be number bigger than 0.';
+            }
+        }
 
-         if (input.height) {
+        if (input.height) {
             if (!/^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$/gm.test(input.height)) {
-             errors.height = 'Height must be number bigger than 0.';
-           }
-         }
- 
-    
+                errors.height = 'Height must be number bigger than 0.';
+            }
+        }
+
+
         return errors;
     }
 
@@ -109,14 +109,14 @@ export default function Create() {
         dispatch(addPokemon(input));
         console.log(input);
         setInput({
-            name: "",
-            image: "",
-            hp: "",
-            attack: "",
-            defense: "",
-            speed: "",
-            height: "",
-            weight: "",
+            name: null,
+            image: null,
+            hp: null,
+            attack: null,
+            defense: null,
+            speed: null,
+            height: null,
+            weight: null,
             types: [],
         })
 
@@ -162,52 +162,52 @@ export default function Create() {
                 <div className="create">Create Your Pokemon!</div>
 
                 <form className="form" onSubmit={handleSubmit}>
-            
+
                     <div>
                         <label className="label">Name:</label>
-                        <input type="text" name="name" className="black" onChange={(e) => { handleChange(e) }}/>
-                        { errors.name? <p>{errors.name}</p> : null  }
+                        <input type="text" name="name" className="black" onChange={(e) => { handleChange(e) }} />
+                        {errors.name ? <p>{errors.name}</p> : null}
                     </div>
-            
+
                     <div>
                         <label className="label">Image:</label>
-                        <input type="text" name="image" className="black" onChange={(e) => { handleChange(e) }}/>
-                        { errors.image? <p>{errors.image}</p> : null  }
-                        </div>
+                        <input type="text" name="image" className="black" onChange={(e) => { handleChange(e) }} />
+                        {errors.image ? <p>{errors.image}</p> : null}
+                    </div>
                     <div>
                         <label className="label">HP:</label>
-                        <input type="text" name="hp" className="black" onChange={(e) => { handleChange(e) }}/>
-                        { errors.hp? <p>{errors.hp}</p> : null }
+                        <input type="text" name="hp" className="black" onChange={(e) => { handleChange(e) }} />
+                        {errors.hp ? <p>{errors.hp}</p> : null}
                     </div>
                     <div>
                         <label className="label">Attack:</label>
-                        <input type="text" name="attack" className="black" onChange={(e) => { handleChange(e) }}/>
-                        { errors.attack? <p>{errors.attack}</p> : null }
+                        <input type="text" name="attack" className="black" onChange={(e) => { handleChange(e) }} />
+                        {errors.attack ? <p>{errors.attack}</p> : null}
                     </div>
                     <div>
                         <label className="label">Defense:</label>
-                        <input type="text" name="defense" className="black" onChange={(e) => { handleChange(e) }}/>
-                        { errors.defense? <p>{errors.defense}</p> : null }
+                        <input type="text" name="defense" className="black" onChange={(e) => { handleChange(e) }} />
+                        {errors.defense ? <p>{errors.defense}</p> : null}
                     </div>
-                    
+
                     <div>
                         <label className="label">Speed:</label>
-                        <input type="text" name="speed" className="black" onChange={(e) => { handleChange(e) }}/>
-                        { errors.speed? <p>{errors.speed}</p> : null }
+                        <input type="text" name="speed" className="black" onChange={(e) => { handleChange(e) }} />
+                        {errors.speed ? <p>{errors.speed}</p> : null}
                     </div>
                     <div>
                         <label className="label">Weight:</label>
-                        <input type="text" name="weight" className="black" onChange={(e) => { handleChange(e) }}/>
-                        { errors.weight? <p>{errors.weight}</p> : null }
+                        <input type="text" name="weight" className="black" onChange={(e) => { handleChange(e) }} />
+                        {errors.weight ? <p>{errors.weight}</p> : null}
                     </div>
                     <div>
                         <label className="label">Height:</label>
-                        <input type="text" name="height" className="black" onChange={(e) => { handleChange(e) }}/>
-                        { errors.height? <p>{errors.height}</p> : null }
+                        <input type="text" name="height" className="black" onChange={(e) => { handleChange(e) }} />
+                        {errors.height ? <p>{errors.height}</p> : null}
                     </div>
-                    
-                
- 
+
+
+
                     <div>
                         <select onChange={(e) => { handleSelect(e) }}>
                             {
@@ -219,21 +219,22 @@ export default function Create() {
                             }
                         </select>
 
-<div>
-                        {
-                    input.types.map(t => 
-                            <div key={t.name}>
-                                <p>{t}</p>
-                                <button onClick={() => handleClose(t)} >X</button>
+                        <div>
+                            {
+                                input.types.map(t =>
+                                    <div key={t.name}>
+                                        <p>{t}</p>
+                                        <button onClick={() => handleClose(t)} >X</button>
 
-                            </div>
-                        
-                    )
-                }
-                </div>
+                                    </div>
+
+                                )
+                            }
+                        </div>
                     </div>
                     <button className='btn-create-pokemon' type="Submit">CREATE</button>
                 </form>
+
             </div>
         </div>
     )

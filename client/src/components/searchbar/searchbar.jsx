@@ -8,29 +8,29 @@ import './searchbar.css';
 
 export default function Search() {
 
-let dispatch = useDispatch();
-const [name, setName] = useState("");
+  let dispatch = useDispatch();
+  const [name, setName] = useState("");
 
-function handleChange(e) {
+  function handleChange(e) {
     e.preventDefault();
-   setName(e.target.value)
-}
+    setName(e.target.value)
+  }
 
-function handleSubmit(e) {
-e.preventDefault();
-dispatch(getPokemonByName(name))
-}
+  function handleSubmit(e) {
+    e.preventDefault();
+    dispatch(getPokemonByName(name.toLowerCase()))
+  }
 
 
-return (
+  return (
     <div>
       <input
-      type='text'
-      placeholder=""
-      onChange={(e) => handleChange(e)}
-      className="input" />
+        type='text'
+        placeholder=""
+        onChange={(e) => handleChange(e)}
+        className="input" />
       <button type='submit' onClick={(e) => handleSubmit(e)} className="btn-search" >Search</button>
-    
+
     </div>
   )
 

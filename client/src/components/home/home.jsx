@@ -38,6 +38,25 @@ export default function Home() {
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
+
+    const prev = () => {
+        if (currentPage !== 1) {
+            let pre = currentPage - 1;
+            setCurrentPage(pre)
+        }
+    }
+
+
+    const next = () => {
+        const allPokemons = allPoke.length;
+        const max = allPokemons / pokemonsPerPage;
+        if (currentPage < max) {
+            let prox = currentPage + 1;
+            setCurrentPage(prox)
+        }
+    }
+
+
     //////////////
 
     useEffect(() => {
@@ -47,27 +66,29 @@ export default function Home() {
     }, [dispatch])
 
 
-function handleFilterType(e) {
-dispatch(filterByType(e.target.value))
-}
+    function handleFilterType(e) {
+        dispatch(filterByType(e.target.value))
+    }
 
-function handleFilterExistence(e) {
-    dispatch(filterByExistence(e.target.value))
-}
+    function handleFilterExistence(e) {
+        dispatch(filterByExistence(e.target.value))
+    }
 
-function SortByName(e) {
-    e.preventDefault();
-    dispatch(orderByName(e.target.value))
-    setCurrentPage(1);
-    setOrden(`Ordenado ${e.target.value}`) // MODIFICA EL ESTADO LOCAL Y RENDERIZA.
-}
+    function SortByName(e) {
+        e.preventDefault();
+        dispatch(orderByName(e.target.value))
+        setCurrentPage(1);
+        setOrden(`Ordenado ${e.target.value}`) // MODIFICA EL ESTADO LOCAL Y RENDERIZA.
+    }
 
-function SortByAttack(e) {
-    e.preventDefault();
-    dispatch(orderByAttack(e.target.value))
-    setCurrentPage(1);
-    setOrden(`Ordenado ${e.target.value}`)
-}
+    function SortByAttack(e) {
+        e.preventDefault();
+        dispatch(orderByAttack(e.target.value))
+        setCurrentPage(1);
+        setOrden(`Ordenado ${e.target.value}`)
+    }
+
+
 
 
 
@@ -75,42 +96,45 @@ function SortByAttack(e) {
     return (
         <div>
             <Nav />
-<div className='allselectors'>
-            <p>sort by name</p>
-            <select className='select' onChange={(e) => SortByName(e)}>
-                <option value="all">all</option>
-                <option value="asc">ascendente</option>
-                <option value="desc">descendente</option>
-            </select>
+            <div className='allselectors'>
 
-            <p>sort by attack</p>
-            <select className='select' onChange={(e) => SortByAttack(e)}>
-                <option value="all">all</option>
-                <option value="asc">ascendente</option>
-                <option value="desc">descendente</option>
-            </select>
 
-            <p>filter by creation</p>
-           <select className='select' onChange={(e) => handleFilterExistence(e)}>
-            <option value="all">all</option>
-            <option value="created">created</option>
-            <option value="existing">existing</option>
-           </select>
 
-           <p>filter by type</p>
-           <select className='select' onChange={(e) => handleFilterType(e)}>
-            <option value="all">all</option>
-          {
-            allTypes.map((t) => {
-               return (<option value={t.name} key={t.name}>{t.name}</option>)
-            })
-          }
-           </select>
-           </div>
+                <p>sort by name</p>
+                <select className='select' onChange={(e) => SortByName(e)}>
+                    <option value="all">all</option>
+                    <option value="asc">ascendente</option>
+                    <option value="desc">descendente</option>
+                </select>
+
+                <p>sort by attack</p>
+                <select className='select' onChange={(e) => SortByAttack(e)}>
+                    <option value="all">all</option>
+                    <option value="asc">ascendente</option>
+                    <option value="desc">descendente</option>
+                </select>
+
+                <p>filter by creation</p>
+                <select className='select' onChange={(e) => handleFilterExistence(e)}>
+                    <option value="all">all</option>
+                    <option value="created">created</option>
+                    <option value="existing">existing</option>
+                </select>
+
+                <p>filter by type</p>
+                <select className='select' onChange={(e) => handleFilterType(e)}>
+                    <option value="all">all</option>
+                    {
+                        allTypes.map((t) => {
+                            return (<option value={t.name} key={t.name}>{t.name}</option>)
+                        })
+                    }
+                </select>
+            </div>
 
             <div className='pages'>
                 {
-                    <Paginado pokemonsPerPage={pokemonsPerPage} allPokemons={allPoke.length} paginado={paginado} />
+                    <Paginado pokemonsPerPage={pokemonsPerPage} allPokemons={allPoke.length} next={next} prev={prev} paginado={paginado} />
                 }
             </div>
 

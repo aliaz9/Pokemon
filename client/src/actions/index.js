@@ -10,6 +10,7 @@ export const FILTER_EXISTENCE = 'FILTER_EXISTENCE';
 export const ORDER_BY_NAME = 'ORDER_BY_NAME';
 export const GET_POKEMON_BY_ID = 'GET_POKEMON_BY_ID';
 export const ORDER_BY_ATTACK = 'ORDER_BY_ATTACK';
+export const FILTER_ATTACK = "FILTER_ATTACK";
 
 export function getPokemons() {
     return async function (dispatch) {
@@ -30,19 +31,19 @@ export function getPokemons() {
 }
 
 export function getPokemonByName(name) {
-    return async function(dispatch) {
-try {
-    const json = await axios.get("http://localhost:3001?name="+name);
+    return async function (dispatch) {
+        try {
+            const json = await axios.get("http://localhost:3001?name=" + name);
 
-    return dispatch( {
-        type: GET_BY_NAME,
-        payload: (await json).data,
-    })
+            return dispatch({
+                type: GET_BY_NAME,
+                payload: (await json).data,
+            })
 
 
-} catch (error) {
-    console.log(error);
-}
+        } catch (error) {
+            console.log(error);
+        }
 
     }
 }
@@ -93,21 +94,21 @@ export function getTypes() {
 }
 
 
-export function addPokemon(payload){
+export function addPokemon(payload) {
 
-    try{
-    return async function(dispatch){
-        var json = await axios.post(`http://localhost:3001/create`, payload);
-        console.log('el json en actions', json)
-        return dispatch({
-            type : "ADD_POKEMON",
-            payload: json.data
-        })
+    try {
+        return async function (dispatch) {
+            var json = await axios.post(`http://localhost:3001/create`, payload);
+            console.log('el json en actions', json)
+            return dispatch({
+                type: "ADD_POKEMON",
+                payload: json.data
+            })
+        }
+    } catch (error) {
+        console.log(`No entra a la accion ${error}`)
     }
-} catch(error) {
-    console.log(`No entra a la accion ${error}`)
-}
-  };
+};
 
 
 export function filterByType(payload) {
@@ -144,13 +145,15 @@ export function orderByAttack(payload) {
 
 export function setLoaderTrue() {
     return {
-      type: 'LOADER_TRUE',
+        type: 'LOADER_TRUE',
     };
-  }
-  
-  export function setLoaderFalse() {
+}
+
+export function setLoaderFalse() {
     return {
-      type: 'LOADER_FALSE',
+        type: 'LOADER_FALSE',
     };
-  }
-  
+}
+
+
+

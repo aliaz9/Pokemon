@@ -1,6 +1,7 @@
 .landing {
-    background-image:  url('./../../images/gradient-2.jpeg');
-    background-color: black;
+
+    background-image: url('./../../images/gradient-2.jpeg');   
+    background-color: orange;
     height: 750px;
     display: flex;
     align-items: center;

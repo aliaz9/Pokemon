@@ -21,37 +21,37 @@ module.exports = (sequelize) => {
     },
 
     hp: {
-      type: DataTypes.TEXT,
+      type: DataTypes.INTEGER,
     },
 
     attack: {
-      type: DataTypes.TEXT,
+      type: DataTypes.INTEGER,
     },
 
     defense: {
-      type: DataTypes.TEXT,
+      type: DataTypes.INTEGER,
     },
 
     speed: {
-      type: DataTypes.TEXT,
+      type: DataTypes.INTEGER,
     },
 
     height: {
-      type: DataTypes.TEXT,
+      type: DataTypes.INTEGER,
     },
 
     weight: {
-      type: DataTypes.TEXT,
+      type: DataTypes.INTEGER,
     },
 
     createdInDB: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,
-     }, 
-  
-    }, {
-timestamps: false
-    }
-    );
+    },
+
+  }, {
+    timestamps: false
+  }
+  );
 
 };

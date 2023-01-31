@@ -1,14 +1,5 @@
-import { GET_POKEMONS, LOADER_FALSE, LOADER_TRUE, GET_TYPES, ADD_POKEMON, FILTER_TYPE, GET_BY_NAME, FILTER_EXISTENCE, ORDER_BY_NAME, GET_POKEMON_BY_ID, ORDER_BY_ATTACK } from '../actions';
+import { GET_POKEMONS, LOADER_FALSE, LOADER_TRUE, GET_TYPES, ADD_POKEMON, FILTER_TYPE, GET_BY_NAME, FILTER_EXISTENCE, ORDER_BY_NAME, GET_POKEMON_BY_ID, ORDER_BY_ATTACK, } from '../actions';
 
-// const initialState = {
-//     allPokemons: [],
-//     spinnerLoader: true,
-//     types: [],
-// };
-
-
-// function reducer(initialState = state, action) {
-// ENTENDER PORQUE LO DE ARRIBA NO FUNCIONO Y LO DE ABAJO SI.
   const initialState = {
     allPokemons: [],
     spinnerLoader: true,
@@ -143,6 +134,7 @@ if (action.type === LOADER_TRUE) {
         allPokemons: ordered
       }
     }
+
 
 
 return state;

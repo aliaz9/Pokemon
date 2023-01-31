@@ -1,5 +1,5 @@
 const axios = require('axios');
-const {Pokemon, Type} = require('../db');
+const { Pokemon, Type } = require('../db');
 
 //// GET ALL ///////////////////
 
@@ -111,7 +111,7 @@ const getById = async (id) => {
             speed: detalle.data.stats[5].base_stat,
             peso: detalle.data.weight,
             altura: detalle.data.height,
-            types: detalle.data.types.map((t) => { return t.type.name })
+            types: detalle.data.types.map((t) => { return t.type.name }).join(", "),
         }
 
         return pokemonDetallado;
